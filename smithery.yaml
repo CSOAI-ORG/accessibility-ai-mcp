@@ -1,0 +1,10 @@
+name: accessibility-ai-mcp
+description: "MEOK AI Labs — Web accessibility (a11y) checking tools powered by MEOK AI Labs."
+vendor: MEOK AI Labs
+homepage: https://meok.ai
+repository: https://github.com/CSOAI-ORG/accessibility-ai-mcp
+license: MIT
+categories: [Accessibility, Web Development]
+tags: [accessibility, a11y, wcag, web-accessibility, inclusive-design]
+runtime: python
+entrypoint: server.py
