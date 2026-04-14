@@ -3,6 +3,11 @@ Accessibility AI MCP Server
 Web accessibility (a11y) checking tools powered by MEOK AI Labs.
 """
 
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import re
 import time
 from collections import defaultdict
@@ -38,7 +43,7 @@ def _relative_luminance(r: int, g: int, b: int) -> float:
 
 
 @mcp.tool()
-def check_color_contrast(foreground: str, background: str, font_size: float = 16.0, bold: bool = False) -> dict:
+def check_color_contrast(foreground: str, background: str, font_size: float = 16.0, bold: bool = False, api_key: str = "") -> dict:
     """Check WCAG 2.1 color contrast ratio between foreground and background colors.
 
     Args:
@@ -47,6 +52,10 @@ def check_color_contrast(foreground: str, background: str, font_size: float = 16
         font_size: Font size in pixels (default 16)
         bold: Whether text is bold (default False)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("check_color_contrast")
     try:
         fg_rgb = _hex_to_rgb(foreground)
@@ -72,13 +81,17 @@ def check_color_contrast(foreground: str, background: str, font_size: float = 16
 
 
 @mcp.tool()
-def suggest_alt_text(context: str, image_type: str = "photo") -> dict:
+def suggest_alt_text(context: str, image_type: str = "photo", api_key: str = "") -> dict:
     """Suggest alt text guidelines and templates for different image types.
 
     Args:
         context: Description of the image content/context
         image_type: Image type - 'photo', 'icon', 'chart', 'decorative', 'logo', 'screenshot', 'diagram'
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("suggest_alt_text")
     guidelines = {
         "photo": {"template": f"Photo of {context}", "max_length": 125,
@@ -105,12 +118,16 @@ def suggest_alt_text(context: str, image_type: str = "photo") -> dict:
 
 
 @mcp.tool()
-def check_heading_hierarchy(html: str) -> dict:
+def check_heading_hierarchy(html: str, api_key: str = "") -> dict:
     """Check heading hierarchy in HTML for proper nesting (h1 -> h2 -> h3...).
 
     Args:
         html: HTML content to analyze
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("check_heading_hierarchy")
     headings = []
     for match in re.finditer(r'<h([1-6])[^>]*>(.*?)</h\1>', html, re.IGNORECASE | re.DOTALL):
@@ -134,12 +151,16 @@ def check_heading_hierarchy(html: str) -> dict:
 
 
 @mcp.tool()
-def aria_validator(html: str) -> dict:
+def aria_validator(html: str, api_key: str = "") -> dict:
     """Validate ARIA attributes and roles in HTML for correctness.
 
     Args:
         html: HTML content to validate
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("aria_validator")
     valid_roles = {"alert", "alertdialog", "application", "article", "banner", "button", "cell",
                    "checkbox", "columnheader", "combobox", "complementary", "contentinfo", "definition",

@@ -1,23 +1,80 @@
 {
   "name": "accessibility-ai-mcp",
-  "description": "MEOK AI Labs \u2014 Web accessibility (a11y) checking tools powered by MEOK AI Labs.",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/accessibility-ai-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "Color contrast checking, alt text suggestions, heading hierarchy, and ARIA validation.",
+  "version": "1.0.0",
   "tools": [
-    "check_color_contrast",
-    "suggest_alt_text",
-    "check_heading_hierarchy",
-    "aria_validator"
-  ],
-  "categories": [
-    "Accessibility",
-    "Web Development"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "check_color_contrast",
+      "description": "Check WCAG 2.1 color contrast ratio between foreground and background colors.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "foreground": {
+            "type": "string"
+          },
+          "background": {
+            "type": "string"
+          },
+          "font_size": {
+            "type": "number"
+          },
+          "bold": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "foreground",
+          "background"
+        ]
+      }
+    },
+    {
+      "name": "suggest_alt_text",
+      "description": "Suggest alt text guidelines and templates for different image types.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "context": {
+            "type": "string"
+          },
+          "image_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "context"
+        ]
+      }
+    },
+    {
+      "name": "check_heading_hierarchy",
+      "description": "Check heading hierarchy in HTML for proper nesting (h1 -> h2 -> h3...).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "html": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "html"
+        ]
+      }
+    },
+    {
+      "name": "aria_validator",
+      "description": "Validate ARIA attributes and roles in HTML for correctness.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "html": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "html"
+        ]
+      }
+    }
+  ]
 }
