@@ -1,6 +1,6 @@
 {
   "name": "accessibility-ai-mcp",
-  "description": "Color contrast checking, alt text suggestions, heading hierarchy, and ARIA validation.",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
   "version": "1.0.0",
   "tools": [
     {

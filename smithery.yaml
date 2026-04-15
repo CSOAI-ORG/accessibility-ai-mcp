@@ -1,6 +1,5 @@
 name: accessibility-ai-mcp
-description: Color contrast checking, alt text suggestions, heading hierarchy, and
-  ARIA validation.
+description: MEOK AI Labs MCP Server
 version: 1.0.0
 tools:
 - name: check_color_contrast
