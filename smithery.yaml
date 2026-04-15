@@ -1,5 +1,6 @@
 name: accessibility-ai-mcp
-description: MEOK AI Labs MCP Server
+description: 'Accessibility Ai MCP server. Tools: check color contrast, suggest alt
+  text, check heading hierarchy. Built by MEOK AI Labs.'
 version: 1.0.0
 tools:
 - name: check_color_contrast
