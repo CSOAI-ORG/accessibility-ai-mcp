@@ -1,57 +1,38 @@
-# Accessibility AI MCP Server
+<div align="center">
 
-> By [MEOK AI Labs](https://meok.ai) — Web accessibility (a11y) checking tools for WCAG 2.1 compliance
+[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/accessibility-ai-mcp)](https://github.com/CSOAI-ORG/accessibility-ai-mcp/stargazers)
+
+# uaccessibilityU aiU mcp
+
+**> By [MEOK AI Labs](https://meok.ai) — Web accessibility (a11y) checking tools for WCAG 2.1 compliance**
+
+[![npm version](https://img.shields.io/npm/v/@meok-ai/accessibility-ai-mcp)](https://www.npmjs.com/package/@meok-ai/accessibility-ai-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
+
+[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/accessibility-ai-mcp/issues)
+
+</div>
+
+---
 
 ## Installation
 
 ```bash
 pip install accessibility-ai-mcp
+# or
+npm install -g @meok-ai/accessibility-ai-mcp
 ```
 
-## Usage
+## Quick Start
 
-```bash
-# Run standalone
-python server.py
+See the project repository for full documentation and examples.
 
-# Or via MCP
-mcp install accessibility-ai-mcp
-```
+## Enterprise Support
 
-## Tools
-
-### `check_color_contrast`
-Check WCAG 2.1 color contrast ratio between foreground and background colors. Returns AA/AAA pass/fail for normal and large text.
-
-**Parameters:**
-- `foreground` (str): Foreground/text color in hex (e.g., '#333333')
-- `background` (str): Background color in hex (e.g., '#FFFFFF')
-- `font_size` (float): Font size in pixels (default 16)
-- `bold` (bool): Whether text is bold (default False)
-
-### `suggest_alt_text`
-Suggest alt text guidelines and templates for different image types per WCAG 2.1 - 1.1.1 Non-text Content.
-
-**Parameters:**
-- `context` (str): Description of the image content/context
-- `image_type` (str): Image type — 'photo', 'icon', 'chart', 'decorative', 'logo', 'screenshot', 'diagram'
-
-### `check_heading_hierarchy`
-Check heading hierarchy in HTML for proper nesting (h1 -> h2 -> h3...) per WCAG 1.3.1.
-
-**Parameters:**
-- `html` (str): HTML content to analyze
-
-### `aria_validator`
-Validate ARIA attributes and roles in HTML for correctness. Checks for invalid roles, missing role attributes, and focusable elements with aria-hidden.
-
-**Parameters:**
-- `html` (str): HTML content to validate
-
-## Authentication
-
-Free tier: 50 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
+- 📧 nicholas@csoai.org
+- 🌐 [CSOAI.org](https://csoai.org)
 
 ## License
 
-MIT — MEOK AI Labs
+MIT © [CSOAI](https://csoai.org)
