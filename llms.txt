@@ -1,0 +1,31 @@
+# Accessibility Ai MCP
+
+> accessibility-ai-mcp MCP — AI-powered automation tool
+
+`accessibility-ai-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+
+## Install
+
+```bash
+pip install accessibility-ai-mcp
+```
+
+Or run without installing:
+
+```bash
+uvx accessibility-ai-mcp
+```
+
+## Tools
+
+- `check_color_contrast` — Check WCAG 2.1 color contrast ratio between foreground and background colors.
+- `suggest_alt_text` — Suggest alt text guidelines and templates for different image types.
+- `check_heading_hierarchy` — Check heading hierarchy in HTML for proper nesting (h1 -> h2 -> h3...).
+- `aria_validator` — Validate ARIA attributes and roles in HTML for correctness.
+
+## Links
+
+- Source: https://github.com/CSOAI-ORG/accessibility-ai-mcp
+- PyPI: https://pypi.org/project/accessibility-ai-mcp/
+- MEOK AI Labs: https://meok.ai
+- Council of AI: https://councilof.ai
