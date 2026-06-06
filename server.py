@@ -1,12 +1,17 @@
 """
+Buy Pro: https://www.csoai.org/checkout
+
 Accessibility AI MCP Server
 Web accessibility (a11y) checking tools powered by MEOK AI Labs.
 """
 
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
-from auth_middleware import check_access
+try:
+    from auth_middleware import check_access
+except ImportError:
+    def check_access(api_key: str = "") -> tuple:
+        return (True, "Open access", "community")
 
 import re
 import time
@@ -24,7 +29,7 @@ def _check_rate_limit(tool_name: str) -> None:
     now = time.time()
     _call_counts[tool_name] = [t for t in _call_counts[tool_name] if now - t < WINDOW]
     if len(_call_counts[tool_name]) >= FREE_TIER_LIMIT:
-        raise ValueError(f"Rate limit exceeded for {tool_name}. Free tier: {FREE_TIER_LIMIT}/day. Upgrade at https://meok.ai/pricing")
+        raise ValueError(f"Rate limit exceeded for {tool_name}. Free tier: {FREE_TIER_LIMIT}/day. Upgrade at https://councilof.ai")
     _call_counts[tool_name].append(now)
 
 
@@ -83,7 +88,7 @@ def check_color_contrast(foreground: str, background: str, font_size: float = 16
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     _check_rate_limit("check_color_contrast")
     try:
@@ -147,7 +152,7 @@ def suggest_alt_text(context: str, image_type: str = "photo", api_key: str = "")
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     _check_rate_limit("suggest_alt_text")
     guidelines = {
@@ -212,7 +217,7 @@ def check_heading_hierarchy(html: str, api_key: str = "") -> dict:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     _check_rate_limit("check_heading_hierarchy")
     headings = []
@@ -274,7 +279,7 @@ def aria_validator(html: str, api_key: str = "") -> dict:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     _check_rate_limit("aria_validator")
     valid_roles = {"alert", "alertdialog", "application", "article", "banner", "button", "cell",
@@ -308,5 +313,8 @@ def aria_validator(html: str, api_key: str = "") -> dict:
             "roles_found": role_count, "valid": not any(i["severity"] == "error" for i in issues)}
 
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()
