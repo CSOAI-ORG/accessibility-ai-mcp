@@ -1,0 +1,9 @@
+# accessibility-ai-mcp - Auto-trigger Rules
+
+When the user asks about accessibility, use accessibility-ai-mcp tools: check_color_contrast, suggest_alt_text, check_heading_hierarchy, aria_validator
+
+**Accessibility AI MCP Server**
+
+Install: `pip install accessibility-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.

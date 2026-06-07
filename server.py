@@ -1,6 +1,4 @@
 """
-Buy Pro: https://www.csoai.org/checkout
-
 Accessibility AI MCP Server
 Web accessibility (a11y) checking tools powered by MEOK AI Labs.
 """

@@ -1,31 +1,33 @@
-# Accessibility Ai MCP
-
-> accessibility-ai-mcp MCP — AI-powered automation tool
-
-`accessibility-ai-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+# accessibility-ai-mcp
+# **Accessibility AI MCP Server**
 
 ## Install
-
 ```bash
 pip install accessibility-ai-mcp
 ```
 
-Or run without installing:
-
-```bash
-uvx accessibility-ai-mcp
-```
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
 
 ## Tools
 
-- `check_color_contrast` — Check WCAG 2.1 color contrast ratio between foreground and background colors.
-- `suggest_alt_text` — Suggest alt text guidelines and templates for different image types.
-- `check_heading_hierarchy` — Check heading hierarchy in HTML for proper nesting (h1 -> h2 -> h3...).
-- `aria_validator` — Validate ARIA attributes and roles in HTML for correctness.
+### `check_color_contrast`
+Check WCAG 2.1 color contrast ratio between foreground and background colors.
 
-## Links
+### `suggest_alt_text`
+Suggest alt text guidelines and templates for different image types.
 
-- Source: https://github.com/CSOAI-ORG/accessibility-ai-mcp
-- PyPI: https://pypi.org/project/accessibility-ai-mcp/
-- MEOK AI Labs: https://meok.ai
-- Council of AI: https://councilof.ai
+### `check_heading_hierarchy`
+Check heading hierarchy in HTML for proper nesting (h1 -> h2 -> h3...).
+
+### `aria_validator`
+Validate ARIA attributes and roles in HTML for correctness.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.
