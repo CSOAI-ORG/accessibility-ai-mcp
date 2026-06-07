@@ -1,0 +1,59 @@
+{
+  "name": "accessibility-ai-mcp",
+  "description": "Accessibility Ai MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/accessibility-ai-mcp.html",
+  "version": "1.0.6",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "check_color_contrast",
+      "name": "Check Color Contrast",
+      "description": "check_color_contrast via accessibility-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "suggest_alt_text",
+      "name": "Suggest Alt Text",
+      "description": "suggest_alt_text via accessibility-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "check_heading_hierarchy",
+      "name": "Check Heading Hierarchy",
+      "description": "check_heading_hierarchy via accessibility-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "aria_validator",
+      "name": "Aria Validator",
+      "description": "aria_validator via accessibility-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
