@@ -4,9 +4,9 @@
   "version": "1.0.9",
   "description": "Accessibility Ai MCP Server by MEOK AI Labs",
   "repository": {
-    "type": "git",
     "url": "https://github.com/CSOAI-ORG/accessibility-ai-mcp",
-    "source": "https://github.com/CSOAI-ORG/accessibility-ai-mcp"
+    "source": "github",
+    "id": "1209394011"
   },
   "packages": [
     {
