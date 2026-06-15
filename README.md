@@ -1,4 +1,4 @@
-<!-- mcp-name: CSOAI-ORG/accessibility-ai-mcp -->
+<!-- mcp-name: io.github.CSOAI-ORG/accessibility-ai-mcp -->
 [![MCP Scorecard: 74/100](https://img.shields.io/badge/proofof.ai-74%2F100-5b21b6)](https://proofof.ai/scorecard/accessibility-ai-mcp.html)
 
 # Accessibility Ai MCP
@@ -98,3 +98,32 @@ buyers can deploy without vendor-lock-in objections.
 
 <!-- BUY-LADDER:END -->
 
+## See also
+
+MEOK compliance MCP fleet:
+[`ai-ops-mcp`](https://github.com/CSOAI-ORG/ai-ops-mcp), [`health-check-ai-mcp`](https://github.com/CSOAI-ORG/health-check-ai-mcp), [`healthcare-ai-governance-mcp`](https://github.com/CSOAI-ORG/healthcare-ai-governance-mcp), [`plagiarism-checker-ai-mcp`](https://github.com/CSOAI-ORG/plagiarism-checker-ai-mcp)
+
+
+## Configuration
+
+Add to your `claude_desktop_config.json` (Claude Desktop) or your MCP client config:
+
+```json
+{
+  "mcpServers": {
+    "accessibility-ai-mcp": {
+      "command": "uvx",
+      "args": ["accessibility-ai-mcp"]
+    }
+  }
+}
+```
+
+Or: `pip install accessibility-ai-mcp` then run the `accessibility-ai-mcp` command (stdio transport).
+
+## Examples
+
+Once configured, ask your assistant, for example:
+- "Use `check_color_contrast` to …"
+- "Use `suggest_alt_text` to …"
+- "Use `check_heading_hierarchy` to …"

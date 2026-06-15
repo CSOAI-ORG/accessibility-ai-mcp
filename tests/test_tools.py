@@ -6,7 +6,7 @@ and ARIA validation. No external API calls.
 import json
 import os
 import sys
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
 _mock_mcp_module = MagicMock()
 
@@ -36,6 +36,13 @@ def reset_state():
     srv._call_counts.clear()
     yield
     srv._call_counts.clear()
+
+
+@pytest.fixture(autouse=True)
+def bypass_auth_and_rate_limit():
+    with patch.object(srv, "check_access", return_value=(True, "OK", "pro")), \
+         patch.object(srv, "_check_rate_limit", return_value=None):
+        yield
 
 
 class TestMcpRegistration:
