@@ -191,7 +191,9 @@ def suggest_alt_text(context: str, image_type: str = "photo", api_key: str = "")
         "diagram": {"template": f"Diagram illustrating {context}", "max_length": 250,
                     "tips": ["Describe the relationships or flow", "Provide a text description as alternative"]},
     }
-    guide = guidelines.get(image_type, guidelines["photo"])
+    if image_type not in guidelines:
+        image_type = "photo"
+    guide = guidelines[image_type]
     return {"suggested_alt_text": guide["template"], "image_type": image_type,
             "max_recommended_length": guide["max_length"], "tips": guide["tips"],
             "wcag_reference": "WCAG 2.1 - 1.1.1 Non-text Content (Level A)"}
